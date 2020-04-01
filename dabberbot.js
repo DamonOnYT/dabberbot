@@ -31,6 +31,7 @@ const Enmap = require('enmap');
 const Sentry = require('@sentry/node');
 const DBL = require("dblapi.js");
 Sentry.init({ dsn: 'https://dbe3678b2f9140beb3d2db646bdf6f74@sentry.io/1833185' });
+
 // Database stuff
 client.settings = new Enmap({
   name: "settings",
@@ -48,18 +49,18 @@ const defaultSettings = {
 const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIzOTg1MzIxMjQ0NDc4NjY4OSIsImJvdCI6dHJ1ZSwiaWF0IjoxNTg1NzUxMTEzfQ.qUtAWSOdQtSuI57uijYU-Ye6hT-fQfQpRIozyU9F0MY', client);
 
 client.on('guildCreate', guild => {
-	client.channels.get('367957974418718722').send(`I have joined a new server! it is called **${guild.name}** with **${guild.memberCount} users**`);
+  client.channels.get('649207579297316875').send(`:tada: Joined Server | Membercount: ${guild.memberCount} Name: **${guild.name}** `);
 	
 });
 client.on("guildDelete", guild => {
 // Removing an element uses `delete(key)`
 client.settings.delete(guild.id);
   client.guilds.get(``).send(`I have left a guild called ${guild.name}`);
-  client.channels.get('367957974418718722').send(`I have left a server with **${guild.name}** and **${guild.memberCount} users**`);
+  client.channels.get('649207579297316875').send(`Left Server | Membercount: ${guild.memberCount} Name: **${guild.name}** `);
 });
 
 
-/*client.on("guildMemberAdd", member => {
+client.on("guildMemberAdd", member => {
   // This executes when a member joins, so let's welcome them!
   // First, ensure the settings exist
   client.settings.ensure(member.guild.id, defaultSettings);
@@ -70,7 +71,7 @@ client.settings.delete(guild.id);
     welcomeMessage = welcomeMessage.replace("{{servername}}", member.guild.name);
   // we'll send to the welcome channel.
   member.guild.channels.find("name", client.settings.get(member.guild.id, "welcomeChannel")).send(welcomeMessage).catch(console.error);
-  });*/
+  });
 
 
 
@@ -109,7 +110,7 @@ if(message.content.indexOf(guildConf.prefix) !== 0) return;
 //Then we use the config prefix to get our arguments and command:
 const args = message.content.split(/\s+/g);
 const command = args.shift().slice(guildConf.prefix.length).toLowerCase();
-  //if(!blacklist) return message.reply(`You are blacklisted from using DabberBot. Contact our team at discord.ddidevelopment.com or support@ddidevelopment.com`)
+if(blacklist.includes(message.author.id)) return message.reply(`You are blacklisted from using DabberBot. Contact our team at support@ddidevelopment.com for more information and appealing.`);
 
 
 // ill simplify this at some point, atm its just a mess of garbage
@@ -208,10 +209,10 @@ if(!client.settings.has(message.guild.id, prop)) {
   .setColor("RANDOM")
   .setTitle("Error")
   .addField("That's not an option.", "Please pick one from the list.")
-  .addField("modLogChannel", `${guildConf.prefix}setconf modlogChannel newchannel`)
+  .addField("modLogChannel", `${guildConf.prefix}setconfig modlogChannel newchannel`)
   .addField("prefix", `${guildConf.prefix}setconf prefix newprefix`)
-  .addField("welcomeChannel", `${guildConf.prefix}setconf welcomeChannel newchannel`)
-  .addField("welcomeMessage", `${guildConf.prefix}setconf welcomeMessage newmessage\n\nuse\`{{user}}\` to mention the user that joined.\nUse \`{{servername}}\` to add the servername`);
+  .addField("welcomeChannel", `${guildConf.prefix}setconfig welcomeChannel newchannel`)
+  .addField("welcomeMessage", `${guildConf.prefix}setconfig welcomeMessage newmessage\n\nuse\`{{user}}\` to mention the user that joined.\nUse \`{{servername}}\` to add the servername`);
 return message.channel.send({embed: embed1});/*`Error. That is not an option
     
 Options:
@@ -222,9 +223,6 @@ welcomeMessage
  | {{user}} - Mentions the user who joined
  | {{servername}} - Inserts the servername`*/
 }       
-        // I could just CTRL+A and delete all of this code
-        // I saw you save that
-        // saved in my clipboard    ik u did
         var embed2 = new Discord.RichEmbed().setColor("RANDOM").setTitle("Options")
   .addField("modLogChannel", `${guildConf.prefix}setconf modlogChannel newchannel`)
   .addField("prefix", `${guildConf.prefix}setconf prefix newprefix`)
@@ -236,10 +234,8 @@ if(!args[0]) return message.channel.send({embed: embed2});
         if(!args[1]) return message.channel.send(`What do you want to set ${args} to?
 **Example:** ${guildConf.prefix}setconf modLogChannel logs`);
         
-    // Now we can finally change the value. Here we only have strings for values 
-    // so we won't bother trying to make sure it's the right type and such. 
+
     client.settings.set(message.guild.id, value.join(" "), prop);
-    // We can confirm everything's done to the client.
     message.channel.send(`Guild configuration item ${prop} has been changed to:\n\`${value.join(" ")}\``);
       }
   
