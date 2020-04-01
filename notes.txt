@@ -1,0 +1,15 @@
+Commands that have been edited with the config options
+
+- ban
+- kick
+
+
+
+
+
+Commands that have been fully updated & ready for deployment
+
+
+
+
+
