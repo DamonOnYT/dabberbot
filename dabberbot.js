@@ -60,7 +60,7 @@ client.settings.delete(guild.id);
 });
 
 
-client.on("guildMemberAdd", member => {
+/*(client.on("guildMemberAdd", member => {
   // This executes when a member joins, so let's welcome them!
   // First, ensure the settings exist
   client.settings.ensure(member.guild.id, defaultSettings);
@@ -71,7 +71,7 @@ client.on("guildMemberAdd", member => {
     welcomeMessage = welcomeMessage.replace("{{servername}}", member.guild.name);
   // we'll send to the welcome channel.
   member.guild.channels.find("name", client.settings.get(member.guild.id, "welcomeChannel")).send(welcomeMessage).catch(console.error);
-  });
+  });*/
 
 
 
@@ -243,4 +243,4 @@ if(!args[0]) return message.channel.send({embed: embed2});
 
 });
 
-client.login(`MjM5ODUzMjEyNDQ0Nzg2Njg5.D0rRBA.xa-l0VxYurAvcC94pZh32KyYS-Q`);
+client.login(`MjM5ODUzMjEyNDQ0Nzg2Njg5.XoXwcA.n9zsef4dNYMpNeJyKDngl7RYdB8`);
