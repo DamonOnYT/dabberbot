@@ -101,7 +101,7 @@ fs.readdir("./events/", (err, files) => {
 });
 
 fs.readdir("./commands/", (err, files) => {
-  if (err) return console.error(err);
+/*  if (err) return console.error(err);
   files.forEach(file => {
     if (!file.endsWith(".js")) return;
     let props = require(`./commands/${file}`);
@@ -148,7 +148,8 @@ fs.readdir("./commands/serveradmin", (err, files) => {
     let commandName = file.split(".")[0];
     console.log(`Attempting to load command ${commandName}`);
   });
-});
+});*/
+	
 client.on("message", async (message) => {
  if(!message.guild || message.author.bot) return;
 // We can use ensure() to actually grab the default value for settings,
@@ -214,7 +215,7 @@ if(blacklist.includes(message.author.id)) return message.reply(`You are blacklis
   */
   
   // soon mabybe idk its here incase
-  /*const loadCommands = async () => {
+  const loadCommands = async () => {
   this.coms = 0;
   const categories = fs.readdirSync("./commands/");
   for (let category of categories) {
@@ -229,8 +230,7 @@ if(blacklist.includes(message.author.id)) return message.reply(`You are blacklis
     };
   };
     client.logger.log(`Loading a total of ${this.coms} commands.`);
-};*/
-
+};
   
   
   if(command === "config") {
