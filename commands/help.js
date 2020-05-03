@@ -1,4 +1,4 @@
-  exports.run = (client, message, args, defaultSettings) => {
+  module.exports.run = (client, message, args, defaultSettings) => {
 const guildConf = {
   "prefix": "/"
 }
