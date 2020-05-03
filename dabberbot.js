@@ -100,8 +100,8 @@ fs.readdir("./events/", (err, files) => {
   });
 });
 
-fs.readdir("./commands/", (err, files) => {
-/*  if (err) return console.error(err);
+/*fs.readdir("./commands/", (err, files) => {
+  if (err) return console.error(err);
   files.forEach(file => {
     if (!file.endsWith(".js")) return;
     let props = require(`./commands/${file}`);
