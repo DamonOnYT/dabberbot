@@ -100,6 +100,20 @@ fs.readdir("./events/", (err, files) => {
   });
 });
 
+fs.readdir("./commands/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    // Load the command file itself
+    let props = require(`./commands/${file}`);
+    // Get just the command name from the file name
+    let commandName = file.split(".")[0];
+    console.log(`Attempting to load command ${commandName}`);
+    // Here we simply store the whole thing in the command Enmap. We're not running it right now.
+    client.commands.set(commandName, props);
+  });
+});
+
 /*fs.readdir("./commands/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
@@ -214,23 +228,6 @@ if(blacklist.includes(message.author.id)) return message.reply(`You are blacklis
   }
   */
   
-  // soon mabybe idk its here incase
-  const loadCommands = async () => {
-  this.coms = 0;
-  const categories = fs.readdirSync("./commands/");
-  for (let category of categories) {
-    let commands = fs.readdirSync(`./commands/${category}/`);
-    for (let file of commands) {
-      
-      this.coms++;
-      if (!file.endsWith(".js")) return;
-      let commandName = file.slice(0,-3);
-      const response = client.loadCommand(category, file);
-      if (response) return console.log(response);
-    };
-  };
-    client.logger.log(`Loading a total of ${this.coms} commands.`);
-};
   
   
   if(command === "config") {
