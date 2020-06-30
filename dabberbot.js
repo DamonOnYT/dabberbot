@@ -113,55 +113,6 @@ fs.readdir("./commands/", (err, files) => {
   });
 });
 
-/*fs.readdir("./commands/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./commands/${file}`);
-    let commandName = file.split(".")[0];
-    console.log(`Attempting to load command ${commandName}`);
-  });
-});
-
-fs.readdir("./commands/fun", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./commands/${file}`);
-    let commandName = file.split(".")[0];
-    console.log(`Attempting to load command ${commandName}`);
-  });
-});
-
-fs.readdir("./commands/information", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./commands/${file}`);
-    let commandName = file.split(".")[0];
-    console.log(`Attempting to load command ${commandName}`);
-  });
-});
-
-fs.readdir("./commands/moderation", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./commands/${file}`);
-    let commandName = file.split(".")[0];
-    console.log(`Attempting to load command ${commandName}`);
-  });
-});
-
-fs.readdir("./commands/serveradmin", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./commands/${file}`);
-    let commandName = file.split(".")[0];
-    console.log(`Attempting to load command ${commandName}`);
-  });
-});*/
 	
 client.on("message", async (message) => {
  if(!message.guild || message.author.bot) return;
