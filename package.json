@@ -16,9 +16,6 @@
     "dboats-api": "^2.1.11",
     "@sentry/node": "^5.9.0"
   },
-  "engines": {
-    "node": "8.x"
-  },
   "repository": {
     "url": "https://glitch.com/edit/#!/hello-express"
   },
