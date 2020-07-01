@@ -100,7 +100,7 @@ function clean(text) {
 
 let eventFilter = fs.readdirSync('./events/').filter(x => x.endsWith('.js'));
 for (let file of eventFilter) {
-    let evt = require('../events/' + file);
+    let evt = require('./events/' + file);
     let evtName = file.split('.')[0];
     client.on(evtName, evt.bind(null, client));
     console.log(`[${moment().format('L LTS')}] ${chalk.green('[INFO]')} Loaded event '${evtName}'.`);
