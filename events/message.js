@@ -1,5 +1,13 @@
-module.exports = (client, message, defaultSettings) => {
+module.exports = (client, message) => {
   if (message.author.bot) return;
+
+  const defaultSettings = {	
+    prefix: "/",
+    modLogChannel: "mod-logs",
+    welcomeChannel: "welcome",	
+    welcomeMessage: "Welcome {{user}} to {{servername}}",
+  }
+  
   const guildConf = client.settings.ensure(message.guild.id, defaultSettings);
 
   // Ignore messages not starting with the prefix (in config.json)

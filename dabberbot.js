@@ -133,7 +133,6 @@ const guildConf = client.settings.ensure(message.guild.id, defaultSettings);
 // We also stop processing if the message does not start with our prefix.
 if(message.content.indexOf(guildConf.prefix) !== 0) return;
 //Then we use the config prefix to get our arguments and command:
-client.settings.ensure(member.guild.id, defaultSettings);
 
 const args = message.content.split(/\s+/g);
 const command = args.shift().slice(guildConf.prefix.length).toLowerCase();
