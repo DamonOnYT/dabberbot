@@ -7,14 +7,16 @@
     "start": "node dabberbot.js"
   },
   "dependencies": {
+    "@sentry/node": "^5.9.0",
     "better-sqlite-pool": "^0.2.2",
-    "dblapi.js": "^2.3.0",
-    "discord.js": "^11.3.0",
-    "enmap": "^4.8.4",
-    "express": "^4.16.4",
-    "sqlite3": "^4.0.6",
+    "chalk": "^4.1.0",
+    "dblapi.js": "^2.4.0",
     "dboats-api": "^2.1.11",
-    "@sentry/node": "^5.9.0"
+    "discord.js": "^11.6.4",
+    "enmap": "^4.8.7",
+    "express": "^4.17.1",
+    "moment": "^2.27.0",
+    "sqlite3": "^4.2.0"
   },
   "repository": {
     "url": "https://glitch.com/edit/#!/hello-express"
