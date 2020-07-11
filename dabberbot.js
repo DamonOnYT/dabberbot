@@ -246,7 +246,12 @@ if(!args[0]) return message.channel.send({embed: embed2});
     message.channel.send(`Guild configuration item ${prop} has been changed to:\n\`${value.join(" ")}\``);
       }
   
- 
+ if(command === "reset") {
+  client.guilds.cache.forEach((guild) => {
+        client.settings.delete(guild.id)
+
+  })
+ }
 
 });
 
