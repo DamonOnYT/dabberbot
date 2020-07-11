@@ -1,4 +1,4 @@
-module.exports = (client, message) => {
+module.exports = (client, message, defaultSettings) => {
   if (message.author.bot) return;
   const guildConf = client.settings.ensure(message.guild.id, defaultSettings);
 
