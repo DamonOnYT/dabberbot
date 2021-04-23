@@ -32,7 +32,7 @@ const afk = require('./away.json');
 const Enmap = require('enmap');
 const Sentry = require('@sentry/node');
 const DBL = require("dblapi.js");
-Sentry.init({ dsn: 'https://dbe3678b2f9140beb3d2db646bdf6f74@sentry.io/1833185' });
+Sentry.init({ dsn: 'REDACTED.' });
 
 // Database stuff
 client.settings = new Enmap({
@@ -48,7 +48,7 @@ const defaultSettings = {
   welcomeMessage: "Welcome {{user}} to {{servername}}",
 }
 
-const dbl = new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjIzOTg1MzIxMjQ0NDc4NjY4OSIsImJvdCI6dHJ1ZSwiaWF0IjoxNTg1NzUxMTEzfQ.qUtAWSOdQtSuI57uijYU-Ye6hT-fQfQpRIozyU9F0MY', client);
+const dbl = new DBL('REDACTED.', client);
 
 client.on('guildCreate', guild => {
   client.channels.get('649207579297316875').send(`:tada: Joined Server | Membercount: ${guild.memberCount} Name: **${guild.name}** `);
@@ -256,4 +256,4 @@ if(!args[0]) return message.channel.send({embed: embed2});
 
 });
 
-client.login(`MjM5ODUzMjEyNDQ0Nzg2Njg5.XoXwcA.n9zsef4dNYMpNeJyKDngl7RYdB8`);
+client.login(`REDACTED.`);

@@ -1,27 +1,10 @@
-Welcome to Glitch
+Dabberbot
 =================
 
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy and update live.
+Dabberbot was a multi purporse discord bot. This bot was how my programming career started and as such code is going to be terrible.
 
-**Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
+Code in this bot is based off of Discord.JS v11.6.4 and as such will be very outdated to current code needed and more than likely wont run. This ran on glitch and some functions may be designed for their platform and not others
 
-Find out more [about Glitch](https://glitch.com/about).
+The LICENSE file attached is enforced.
 
-
-Your Project
-------------
-
-On the front-end,
-- edit `public/client.js`, `public/style.css` and `views/index.html`
-- drag in `assets`, like images or music, to add them to your project
-
-On the back-end,
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
-
-
-Made by [Glitch](https://glitch.com/)
--------------------
-
-\ ゜o゜)ノ
+##### (C) DDI Development 2021
