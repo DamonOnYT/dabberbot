@@ -1,7 +1,8 @@
 {
   "name": "dabberbot",
-  "version": "0.0.1",
-  "description": "A simple Node app built on Express, instantly up and running.",
+  "author": "DamonOnYT, DDI Development",
+  "version": "1.0.0",
+  "description": "A multi purporse discord bot",
   "main": "dabberbot.js",
   "scripts": {
     "start": "node dabberbot.js"
@@ -19,12 +20,7 @@
     "sqlite3": "^4.2.0"
   },
   "repository": {
-    "url": "https://glitch.com/edit/#!/hello-express"
+    "url": "https://github.com/DamonOnYT/dabberbot"
   },
-  "license": "MIT",
-  "keywords": [
-    "node",
-    "glitch",
-    "express"
-  ]
+  "license": "AGPL-3.0-only"
 }
